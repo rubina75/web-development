@@ -3,28 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>buttons</title>
-    <style>
-        button{
-            background-color: rgb(68, 255, 80); padding: 20px;
-            color: aliceblue; 
-            font-size: 18px;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            border-radius: 20px;
-            border: 2px solid gray ;
-        }
-        button:hover{
-            background-color: aliceblue;
-            color: rgb(68, 255, 80);   
-        }
-        button:active{
-            background-color: rgb(6, 179, 61);
-            color: black;
-        }
-    </style>
+    <title>Document</title>
 </head>
 <body>
-    <button>click here</button>
-    
+    <button onclick="console.log(`quantity: ${showquantity}`)">show quantity</button>
+    <button 
+    onclick="showquantity=showquantity+1
+    console.log(`quantity: ${showquantity}`)">add to cart</button>
+    <button  onclick="showquantity=showquantity+2
+    console.log(`quantity: ${showquantity}`)">+2</button>
+    <button onclick="showquantity=showquantity*0
+    console.log(`quantity: ${showquantity}`)">Reset Cart</button>
+
+
+
+    <script>
+        let showquantity=0
+    </script>
 </body>
 </html>
