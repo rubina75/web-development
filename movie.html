@@ -11,15 +11,25 @@
         <div class="header">
             <h2> Movie Collection</h2>
         </div>
+        
         <div class="container">
-            <h2> Movie Collection With Images</h12>
-            <div class=" input-grp">
-                <input type="text" id="title" placeholder="Enter Movie Title">
-                <input type="text" id="publisher" placeholder="Enter Publisher">
-                <input type="text" id="URL" placeholder="Enter URL">
+            <div class="info">
+
+                <h1> Movie Collection With Images</h1>
+                <div class=" input-grp">
+                    <input type="text" id="title" placeholder="Enter Movie Title">
+                    <input type="text" id="publisher" placeholder="Enter Publisher">
+                    <input type="text" id="URL" placeholder="Enter URL">
+                </div>
+                <button id="addMovie" class="btn">Add Movies</button> 
+                <button id="clearMovie"class="btn">Clear All Movies</button>
+                <div id="movielist"></div>
             </div>
-            <button id="addMovie" class="btn">Add Movies</button> 
-            <button id="clearMovie"class="btn">Clear All Movies</button>
+            <!-- <img src="" alt="" class="movie-img"> -->
+            <!-- <div class="image"> 
+                <p class=" movie-name"></p>
+                <p class="movie-publisher"></p>
+            </div> -->
         </div>
     </div>
     <script>
@@ -35,7 +45,45 @@
                 alert('Please Enter All The Values')
                 return
             }
+            let movie= {
+                title:title,
+                publisher: Publisher,
+                url: image
+            }
+            // console.log(movie);
+            let movies =JSON.parse(localStorage.getItem('Movies')) ||[]
+            movies.push(movie)
+            // console.log(Movies);
+
+            localStorage.setItem('Movies',JSON.stringify(movies))
+            // let Div =document.createElement('div')
+            // Div.classList.add('movie-item')
+            // Div.innerHTML= `<img src="${movie.url}" alt="" class="movie-img" width="100px">
+            //     <div class="image"> 
+            //     <p class=" movie-name">${movie.title}</p>
+            //     <p class="movie-publisher">${movie.publisher}</p>
+            //     </div>`
+            //     document.getElementById('movielist').appendChild(Div)
+
         }
+        function displayMovies(movies){
+            let Div =document.createElement('div')
+            Div.classList.add('movie-item')
+            Div.innerHTML= `<img src="${movie.url}" alt="" class="movie-img" width="100px">
+                <div class="image"> 
+                <p class=" movie-name">${movie.title}</p>
+                <p class="movie-publisher">${movie.publisher}</p>
+                </div>`
+                document.getElementById('movielist').appendChild(Div)
+        }
+            
+    
+        let movies= JSON.parse(localStorage.getItem('Movies'))
+        console.log(Movies);
+        for (let index = 0; index < Movies.length; index++) {
+            const element = Movies[index];
+        }
+            
 
     </script>
 </body>
